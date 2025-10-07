@@ -1,0 +1,101 @@
+{{ template "layout" .}}
+{{ define "main" }}
+<div class="container mx-auto p-8 gap-5 mt-20">
+    <h1 class="text-4xl font-bold my-10">{{ .Title }}</h1>
+        <div class="p-12 max-lg:hidden">
+            <h2 class="text-2xl font-semibold text-center">Sambutan Kepala Sekolah</h2>
+            <p class="text-gray-500 text-center">SMK Negeri 4 Tasikmalaya</p>
+            <div class="grid my-5 grid-cols-1 md:grid-cols-3">
+                <ul class="mt-4 space-y-2 col-span-2">
+                    <li class="font-bold text-4xl mb-10">Assalamualaikum Wr Wb</li>
+                    {{ range .Profil.Sambutan }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                    <li class="font-semibold">Waalaikumsalam Wr Wb</li>
+                </ul>
+                <img src="https://smkn4tsm.netlify.app/assets/kepsek.png" alt="Foto Sekolah"
+                class="my-auto w-[70%] rounded-lg mx-auto" style="background-color: #0265af;">
+            </div>
+        </div>
+        <div class="p-12 lg:hidden">
+            <h2 class="text-4xl mx-10 mb-6 mt-5 text-center">Sambutan Kepala Sekolah</h2>
+            <p class="text-gray-500 text-center">SMK Negeri 4 Tasikmalaya</p>
+            <div class="my-5">
+                <img src="https://smkn4tsm.netlify.app/assets/kepsek.png" alt="Foto Sekolah"
+                class="my-auto w-[70%] rounded-lg mx-auto" style="background-color: #0265af;">
+                <ul class=" mt-4 space-y-2">
+                    <li class="font-bold text-4xl mb-10">Assalamualaikum Wr Wb</li>
+                    {{ range .Profil.Sambutan }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                    <p class="font-semibold">Waalaikumsalam Wr Wb</p>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="px-45 max-md:px-15 p-5 text-white">
+            <h2 class="text-4xl mx-10 mb-6 mt-5 text-center text-black">Sejarah</h2>
+            <div class="grid my-5 grid-cols-1 md:grid-cols-3">
+                <img src="{{ .Profil.Foto }}" alt="Foto Sekolah"
+                class="my-auto mx-auto rounded-lg">
+                <p class="col-span-2 md:ps-10 my-auto text-justify text-black max-md:mt-10">
+                {{ .Profil.Sejarah }}
+                </p>
+            </div>
+        </div>
+
+        <section class="p-12 text-center">
+            <h2 class="text-4xl mx-10 mb-6 mt-5">Visi</h2>
+            <p class="mt-4 text-gray-600 leading-relaxed">{{ .Profil.Visi }}</p>
+             </section>
+
+             <section class="p-12 text-center">
+             <h2 class="text-4xl mx-10 mb-6 mt-5">Misi</h2>
+             <ul class="list-disc list-inside mt-4 space-y-2 text-gray-600 leading-relaxed">
+                {{ range .Profil.Misi }}
+                <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+        </section>
+</div>
+
+<div class="bg-[#0265af] text-white">
+    <h2 class="text-2xl font-semibold text-center py-5 pt-10">Info SMKN 4 Tasikmalaya</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 px-10 py-10">
+        <div class="mx-auto my-auto">
+                <img src="{{ .Profil.Logo }}" class=" object-fit-cover w-50" alt="Gambar Fullscreen">
+        </div>
+        <table class="text-center max-md:mt-5 md:me-45">
+            <tr class="border-1 border-gray-400">
+                <td class="border-e-1 border-gray-400 font-bold">Nama Sekolah</td>
+                <td>{{ .Info.NamaS }}</td>
+            </tr>
+            <tr class="border-1 border-gray-400">
+                <td class="border-e-1 border-gray-400 font-bold">NPSN</td>
+                <td>{{ .Info.NPSN }}</td>
+            </tr>
+            <tr class="border-1 border-gray-400">
+                <td class="border-e-1 border-gray-400 font-bold">Nomor Statistik Sekolah</td>
+                <td>Rp10.000.000</td>
+            </tr>
+            <tr class="border-1 border-gray-400">
+                <td class="border-e-1 border-gray-400 font-bold">Jalan</td>
+                <td>{{ .Info.Jalan }}</td>
+            </tr>
+            <tr class="border-1 border-gray-400">
+                <td class="border-e-1 border-gray-400 font-bold">Kelurahan</td>
+                <td>{{ .Info.Kelurahan }}</td>
+            </tr>
+            <tr class="border-1 border-gray-400">
+                <td class="border-e-1 border-gray-400 font-bold">Kecamatan</td>
+                <td>{{ .Info.Kecamatan }}</td>
+            </tr>
+            <tr class="border-1 border-gray-400">
+                <td class="border-e-1 border-gray-400 font-bold">Kota</td>
+                <td>{{ .Info.Kota }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+{{ end }}
