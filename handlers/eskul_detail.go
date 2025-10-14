@@ -7,7 +7,7 @@ import (
 	"ukk-lab2/models"
 )
 
-func BeritaDetailHandler(w http.ResponseWriter, r *http.Request) {
+func EskulDetailHandler(w http.ResponseWriter, r *http.Request) {
 	idby := r.URL.Query().Get("id")
 	id, err := strconv.Atoi(idby)
 	if err != nil {
@@ -15,11 +15,11 @@ func BeritaDetailHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var berita models.DataBerita
+	var eskul models.DataEskul
 	gagal := false
-	for _, b := range models.IsiBerita {
-		if  b.ID == id {
-			berita = b
+	for _, e := range models.IsiEskul {
+		if e.ID == id {
+			eskul = e
 			gagal = true
 			break
 		}
@@ -32,13 +32,13 @@ func BeritaDetailHandler(w http.ResponseWriter, r *http.Request) {
 
 	page := struct {
 		Title string
-		Berita models.DataBerita
+		Eskul models.DataEskul
 	}{
-		Title: berita.Judul,
-		Berita: berita,
+		Title: eskul.NamaE,
+		Eskul: eskul,
 	}
 
-	tmpl, err := template.ParseFiles("templates/berita_detail.html", "templates/layout.html")
+	tmpl, err := template.ParseFiles("templates/eskul_detail.html", "templates/layout.html")
 	if err != nil {
 		http.Error(w, "Template error: " + err.Error(), http.StatusInternalServerError)
 		return

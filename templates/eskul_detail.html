@@ -1,0 +1,13 @@
+{{ template "layout" .}}
+{{ define "main" }}
+	<div class="container mx-auto max-md:p-0 p-8 mt-10">
+		<div class="mx-auto p-8">
+			<img src="{{ .Eskul.Foto }}" alt="{{ .Eskul.NamaE }}" class="w-full h-80 object-cover rounded-md mb-6">
+			<h1 class="text-3xl font-bold mb-4">{{ .Eskul.NamaE }}</h1>
+
+			<p class="text-gray-700 mb-4 leading-relaxed">{{ .Eskul.Desc }}</p>
+
+			<a href="/ekstrakurikuler" class="inline-block mt-4 text-blue-500 hover:underline">← Kembali</a>
+		</div>
+	</div>
+{{ end }}

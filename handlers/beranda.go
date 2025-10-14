@@ -8,6 +8,12 @@ import (
 )
 
 func BerandaHandler(w http.ResponseWriter, r *http.Request) {
+	maxGaleri := 3
+	galeriTampil := models.IsiGaleri
+	if len(galeriTampil) > maxGaleri {
+		galeriTampil = galeriTampil[:maxGaleri]
+	}
+
 	var jurusanDgnWarna []models.DataJurusan
 	for _, j := range models.IsiJurusan {
 		j.Warna = utils.AmabilWarna(j.NamaJ)
@@ -18,6 +24,7 @@ func BerandaHandler(w http.ResponseWriter, r *http.Request) {
 		Title string
 		Jurusan []models.DataJurusan
 		Berita []models.DataBerita
+		Galeri []models.DataGaleri
 		Profil models.DataProfil
 		JumlahJ int
 		JumlahS int
@@ -27,6 +34,7 @@ func BerandaHandler(w http.ResponseWriter, r *http.Request) {
 		Jurusan: jurusanDgnWarna,
 		Berita: models.IsiBerita,
 		Profil: models.IsiProfil,
+		Galeri: galeriTampil,
 		JumlahJ: len(jurusanDgnWarna),
 		JumlahS: len(models.IsiSiswa),
 		JumlahG: len(models.IsiGuru),
