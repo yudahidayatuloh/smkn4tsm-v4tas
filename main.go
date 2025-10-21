@@ -14,6 +14,7 @@ func main () {
 	http.HandleFunc("/ekstrakurikuler", handlers.EskulHandler)
 	http.HandleFunc("/galeri", handlers.GaleriHandler)
 	http.HandleFunc("/ekstrakurikuler-d", handlers.EskulDetailHandler)
+	http.HandleFunc("/jurusan-d", handlers.JurusanDetailHandler)
 
 	fmt.Println("Server Ready Derr: http://localhost:8080")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
