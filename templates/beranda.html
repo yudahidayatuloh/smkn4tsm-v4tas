@@ -49,9 +49,9 @@
 
     <div id="Jurusan" class="pt-10">
         <h1 class="text-4xl mx-10 mb-6 mt-20">Kompetensi Keahlian</h1>
-        <a href="/jurusan-d?id={{ .ID }}">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {{ range .Jurusan }}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {{ range .Jurusan }}
+            <a href="/jurusan-d?id={{ .ID }}">
                 <div class="grid grid-cols-3 bg-white  rounded-lg shadow-md overflow-hidden shadow-lg overflow-hidden hover:scale-105 transform transition duration-300">
                     <div class="flex justify-center items-center my-20">
                         <img src="{{ .Foto }}" alt="{{ .NamaJ }}" class="w-20 h-20">
@@ -63,9 +63,9 @@
                         </div>
                     </div>
                 </div>
-                {{ end }}
-            </div>
-        </a>
+            </a>
+            {{ end }}
+        </div>
     </div>
 
     <h1 class="text-4xl mx-10 mb-6 mt-20">Galeri</h1>
